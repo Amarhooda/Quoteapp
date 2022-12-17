@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import axios from "axios";
+import Navbar from "./Components/Navbar";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Youtube from "./Components/Youtube";
 function App() {
+   const [qoute, setQuote] = useState("Wake up to reality! Nothing ever goes as planned in life!");
+   const handleQuote = async () => {
+     const res = await axios.get("https://api.quotable.io/random");
+     setQuote(res.data.content);
+   };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+          <Navbar/>
+        <Routes>
+          <Route
+            path="/"
+          ></Route>
+          <Route path="/Youtube" element={<Youtube/>}></Route>
+        </Routes>
+        <div className="flex flex-col items-center justify-center min-h-screen">
+          <div className="relative">
+            <p className="max-w-[720px] rounded-3xl bg-lime-300 text-center p-8 text-3xl leading-10">
+              " {qoute} "
+            </p>
+            <div className="flex items-center justify-center m-8 relative ">
+              <button
+                className="bg-orange-600 hover:scale-110 transition ease-in-out rounded-2xl p-4 text-2xl hover:rounded-3xl hover:bg-blue-300"
+                onClick={handleQuote}
+              >
+                {" "}
+                Get New Quote{" "}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Router>
   );
 }
 
