@@ -3,6 +3,7 @@ import axios from "axios";
 import Navbar from "./Components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Youtube from "./Components/Youtube";
+import index from './/Components/app.css'
 function App() {
    const [qoute, setQuote] = useState("Wake up to reality! Nothing ever goes as planned in life!");
    const handleQuote = async () => {
@@ -21,7 +22,7 @@ function App() {
         </Routes>
         <div className="flex flex-col items-center justify-center min-h-screen">
           <div className="relative">
-            <p className="max-w-[720px] rounded-3xl bg-lime-300 text-center p-8 text-3xl leading-10">
+            <p className="quote max-w-[720px] rounded-3xl bg-lime-300 text-center p-8 text-3xl leading-10">
               " {qoute} "
             </p>
             <div className="flex items-center justify-center m-8 relative ">

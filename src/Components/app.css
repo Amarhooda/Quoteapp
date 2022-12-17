@@ -1,0 +1,43 @@
+
+@media only screen and (max-width: 600px) {
+    .ytv{
+        width: 190px;
+    }
+    .quote{
+        margin: 15px;
+    }
+    .colum{
+        flex-direction: column;
+    }
+    .para{
+        width: 400px;
+    }
+    .quote{
+        width: 400px;
+    }
+}
+@media only screen and (min-width: 601px) {
+     .ytv{
+        width: 500px;
+    }
+    .quote{
+        margin: 15px;
+    }
+    .colum{
+        flex-direction: column;
+    }
+    .para{
+        width: 500px;
+    }
+    .quote{
+        width: 500px;
+    }
+}
+@media only screen and (min-width: 1350px) {
+    .quote{
+       width: auto;
+    }
+    .colum{
+        flex-direction: row;
+    }
+}
